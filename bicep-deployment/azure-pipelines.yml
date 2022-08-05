@@ -1,6 +1,6 @@
 name: Bicep-StorageAccount-PrivateEndpoint
 trigger:
-- none
+- none # Change to release/production branch
 
 variables:
   resourceGroupName: 'bicep-poc-rg'
