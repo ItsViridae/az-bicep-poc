@@ -13,7 +13,8 @@ This will build the following:
 - [main.bicep](az-bicep-poc\bicep-deployment\main.bicep) is considered the entry point for the bicep API.
 
 # The Azure-pipeline.yml
-- This file is our [Multi-stage Release Pipeline](az-bicep-poc\bicep-deployment\azure-pipelines.yml). The 2 Stages:
+- This file is our [Multi-stage Release Pipeline](az-bicep-poc\bicep-deployment\azure-pipelines.yml).
+- The 2 Stages:
 1. Build & Publish Artifact to a Container
 2. Deploy the resources that are intialized in each module in the [main.bicep](az-bicep-poc\bicep-deployment\main.bicep)
 
