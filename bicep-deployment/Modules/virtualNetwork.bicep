@@ -1,5 +1,5 @@
-param ResourcePrefix string = ''
-param ResourceName string = ''
+param ResourcePrefix string = 'bicep'
+param ResourceName string = 'virtualnetwork'
 param location string = resourceGroup().location
 param virtualNetworkPrefix string
 param subnets array

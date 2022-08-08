@@ -1,5 +1,6 @@
-param resourcePrefix string
-param virtualNetworkPrefix string
+param resourcePrefix string = 'bicep'
+param virtualNetworkPrefix string = '10.123.0.0/16'
+param vmUsername string = 'azuretest'
 param currentDate string = utcNow('yyyy-MM-dd')
 
 var subnetname = '${resourcePrefix}-sn'
@@ -51,5 +52,19 @@ module privateEndPoint 'Modules/privateEndpoint.bicep' = {
     storageAccountId: sta.outputs.staid
     vnetId: vnet.outputs.vnetid
     subnetName: subnetname
+  }
+}
+
+/* Creates VM, Public IP, and Network Interface */
+/* Later, modify using resourcePrefix and VnetPrefixes*/
+module vm 'Modules/virtualMachine.bicep' = {
+  name: 'vm'
+  params: {
+    /*test instance - mock user and pass for VM*/
+    adminUsername: vmUsername
+    adminPassword: 'Azuretest123!'
+    tagValues: tagValues
+    VnetName: vnet.outputs.vnetname
+    SubnetName: subnetname
   }
 }
