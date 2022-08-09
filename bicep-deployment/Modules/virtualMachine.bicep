@@ -1,4 +1,4 @@
-/* Creates Virtual Machine, Public IP, and Network Interface */
+/* Creates Virtual Machine with a Public IP and Network Interface */
 param VnetName string
 param SubnetName string
 param tagValues object = {
@@ -74,7 +74,7 @@ param vmSize string = 'Standard_D2s_v5'
 @description('Location for all resources.')
 param location string = resourceGroup().location
 
-/* public IP */
+/* public IP for VM */
 resource pip 'Microsoft.Network/publicIPAddresses@2021-02-01' = {
   name: publicIpName
   location: location
@@ -90,7 +90,7 @@ resource pip 'Microsoft.Network/publicIPAddresses@2021-02-01' = {
   }
 }
 
-/* Network Interface */
+/* Network Interface for VM */
 resource nic 'Microsoft.Network/networkInterfaces@2021-02-01' = {
   name: nicName
   location: location
